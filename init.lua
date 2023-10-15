@@ -9,7 +9,6 @@ require('lualine-config')
 require('nvim-tree-config')
 require('toggleterm-config')
 require('autopair-config')
-require('copilot-config')
 require("textobjects-config")
 vim.cmd('colorscheme carbonfox')
 

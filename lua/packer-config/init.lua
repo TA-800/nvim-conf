@@ -12,16 +12,31 @@ return require('packer').startup(function(use)
   use "EdenEast/nightfox.nvim"
   -- Dev icons for file explorer
   use "nvim-tree/nvim-web-devicons"
-  -- https://github.com/nvim-lualine/lualine.nvim
-  use "nvim-lualine/lualine.nvim"
   -- https://github.com/romgrk/barbar.nvim
   use "romgrk/barbar.nvim" -- Tabs
   -- https://github.com/rcarriga/nvim-notify
   use 'rcarriga/nvim-notify'
   -- https://github.com/nvim-tree/nvim-tree.lua
   use "nvim-tree/nvim-tree.lua"
-  -- https://github.com/github/copilot.vim
-  use "github/copilot.vim"
+
+  -- https://github.com/zbirenbaum/copilot.lua
+  use {
+    -- Lazy load copilot because it takes a while to connect to server
+    -- So we need to define config function here
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    event = "InsertEnter",
+    config = function()
+      require("copilot").setup({
+        -- https://github.com/zbirenbaum/copilot.lua#setup-and-configuration
+        suggestion = {
+          auto_trigger = true
+        }
+      })
+    end
+  }
+  -- https://github.com/nvim-lualine/lualine.nvim
+  use "nvim-lualine/lualine.nvim"
   -- https://github.com/folke/neodev.nvim
   use "folke/neodev.nvim" -- Neovim kit for Lua Development
   -- https://github.com/akinsho/toggleterm.nvim

@@ -26,17 +26,6 @@ cmp.setup {
   },
 
 
-  -- Accept copilot suggestions on <C-e>
-  ['<C-e>'] = cmp.mapping(function(fallback)
-    cmp.mapping.abort()
-    local copilot_keys = vim.fn["copilot#Accept"]()
-    if copilot_keys ~= "" then
-      vim.api.nvim_feedkeys(copilot_keys, "i", true)
-    else
-      fallback()
-    end
-  end, { 'i', 's' }),
-
   ['<Tab>'] = cmp.mapping(function(fallback)
     if cmp.visible() then
       cmp.select_next_item()
