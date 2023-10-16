@@ -1,7 +1,7 @@
 -- https://github.com/numToStr/dotfiles/blob/master/neovim/.config/nvim/lua/numToStr/keybinds.lua
 -- Creating a custom function to map keybinds more easily
 local function map(m, k, v)
-    vim.keymap.set(m, k, v, { silent = true })
+  vim.keymap.set(m, k, v, { silent = true })
 end
 
 -- Make C-b the shortcut to open / close the File explorer
@@ -9,12 +9,13 @@ map('n', '<C-b>', '<CMD>NvimTreeToggle<CR>')
 
 -- Telescope mappings
 map('n', '<leader>ff', '<CMD>Telescope find_files<CR>')
+map('n', '<leader>fg', '<CMD>Telescope live_grep<CR>')
 
 -- Terminal mappings (defined in toggleterm-config)
 -- Ctrl + \ to open terminal in normal and insert mode, [count]Ctrl + \ to open numbered terminal (for multiple terms), esc to switch to normal mode in terminal
 
 -- Ctrl + s to save in normal and insert mode
-map({'i', 'n', 'v'}, '<C-s>', '<CMD>w<CR>')
+map({ 'i', 'n', 'v' }, '<C-s>', '<CMD>w<CR>')
 -- Ctrl + a to select all in insert mode
 map('i', '<C-a>', '<CMD>normal! ggVG<CR>')
 
@@ -36,7 +37,7 @@ map('n', '<leader>j', '<CMD>join<CR>')
 map('v', '/', "\"fy/\\V<C-R>f<CR>")
 ----------------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------
--- From ThePrimeagen 0 to LSP video 
+-- From ThePrimeagen 0 to LSP video
 -- J and K during visual mode to move up and down selected lines
 map("v", "J", ":m '>+1<CR>gv=gv")
 map("v", "K", ":m '<-2<CR>gv=gv")
