@@ -10,7 +10,6 @@ require('nvim-tree-config')
 require('toggleterm-config')
 require('autopair-config')
 require("textobjects-config")
-require('indent-blankline-config')
 vim.cmd('colorscheme carbonfox')
 
 -- LSPs
