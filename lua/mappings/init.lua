@@ -48,6 +48,9 @@ map("n", "<C-u>", "<C-u>zz")
 map("n", "n", "nzzzv")
 map("n", "N", "Nzzzv")
 
+-- Change <C-c> to <Esc> because visual block insert doesn't work with <C-c>
+map("i", "<C-c>", "<Esc>")
+
 -- With cursor on a word, press leader-s to search and type btwn the slashes to replace all instances
 -- of the word with the word typed
 map("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
