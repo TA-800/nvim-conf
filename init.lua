@@ -1,5 +1,5 @@
 -- https://github.com/nanotee/nvim-lua-guide
--- Lua Guide ^^
+-- Lua Guide ^
 
 require('settings') -- Leader is set to space in settings/init.lua
 require('packer-config')
@@ -10,6 +10,7 @@ require('nvim-tree-config')
 require('toggleterm-config')
 require('autopair-config')
 require("textobjects-config")
+require('indent-blankline-config')
 vim.cmd('colorscheme carbonfox')
 
 -- LSPs

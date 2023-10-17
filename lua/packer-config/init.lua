@@ -18,6 +18,8 @@ return require('packer').startup(function(use)
   use 'rcarriga/nvim-notify'
   -- https://github.com/nvim-tree/nvim-tree.lua
   use "nvim-tree/nvim-tree.lua"
+  -- https://github.com/lukas-reineke/indent-blankline.nvim
+  use "lukas-reineke/indent-blankline.nvim"
 
   -- https://github.com/zbirenbaum/copilot.lua
   use {

@@ -2,10 +2,10 @@
 local M = { init = false }
 
 local status = ''
-local setup = function ()
+local setup = function()
   local api = require('copilot.api')
   api.register_status_notification_handler(function(data)
-   -- customize your message however you want
+    -- customize your message however you want
     if data.status == 'Normal' then
       status = 'Ready'
     elseif data.status == 'InProgress' then
@@ -17,7 +17,7 @@ local setup = function ()
   end)
 end
 
-M.get_status = function ()
+M.get_status = function()
   if not M.init then
     setup()
     M.init = true
