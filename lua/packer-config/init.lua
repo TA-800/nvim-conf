@@ -8,6 +8,8 @@ return require('packer').startup(function(use)
   use 'tpope/vim-surround'
   -- https://github.com/tpope/vim-commentary
   use "tpope/vim-commentary"
+  -- https://github.com/tpope/vim-repeat
+  use "tpope/vim-repeat"
   -- https://github.com/EdenEast/nightfox.nvim
   use "EdenEast/nightfox.nvim"
   -- Dev icons for file explorer
