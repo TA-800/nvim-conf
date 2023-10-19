@@ -89,8 +89,15 @@ o.smoothscroll = true
 -- o.foldmethod = 'indent'
 -- o.foldlevelstart = 99
 -- o.foldnestmax = 3
+
 -- o.foldminlines = 1
 
+-- Highlight yanked text for 200ms
+vim.api.nvim_create_autocmd('TextYankPost', {
+  callback = function()
+    vim.highlight.on_yank({ timeout = 200 })
+  end,
+})
 -- Map <leader> to space
 g.mapleader = ' '
 g.maplocalleader = ' '
