@@ -35,6 +35,9 @@ map('n', '<leader>j', '<CMD>join<CR>')
 
 -- Search visually selected text
 map('v', '/', "\"fy/\\V<C-R>f<CR>")
+
+-- Make enter break lines like normal in normal mode
+map('n', '<CR>', 'a<CR><ESC>')
 ----------------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------
 -- From ThePrimeagen 0 to LSP video
