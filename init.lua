@@ -11,12 +11,14 @@ require('barbar-config')
 require('toggleterm-config')
 require('autopair-config')
 require("textobjects-config")
-vim.cmd('colorscheme carbonfox')
+-- vim.cmd('colorscheme carbonfox')
+vim.cmd('colorscheme catppuccin-mocha')
 
 -- LSPs
 require('mason-config')
 require('lsp-config.language-servers')
 require('lsp-config.nvim-cmp')
+require('lsp-config.lightbulb')
 
 -- Treesitter
 require('treesitter-config')

@@ -10,14 +10,16 @@ local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 -- https://github.com/L3MON4D3/LuaSnip#add-snippets
 require("luasnip.loaders.from_vscode").lazy_load()
 
+-- https://github.com/hrsh7th/nvim-cmp#setup
 cmp.setup {
   snippet = {
     expand = function(args)
       luasnip.lsp_expand(args.body)
     end,
   }, mapping = cmp.mapping.preset.insert({
-  ['<C-u>'] = cmp.mapping.scroll_docs(-4),   -- Up
-  ['<C-d>'] = cmp.mapping.scroll_docs(4),    -- Down
+  -- The following 2 mappings are to navigate the documentation popup on selecting / hovering over a completion item
+  ['<C-u>'] = cmp.mapping.scroll_docs(-4), -- Up
+  ['<C-d>'] = cmp.mapping.scroll_docs(4),  -- Down
   -- C-b (back) C-f (forward) for snippet placeholder navigation.
   -- C-e closes the snippet (already set by default)
   ['<C-Space>'] = cmp.mapping.complete(),
@@ -57,9 +59,9 @@ cmp.setup {
 
       -- The function below will be called before any actual modifications from lspkind
       -- so that you can provide more controls on popup customization. (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))
-      before = function(entry, vim_item)
-        return vim_item
-      end
+      -- before = function(entry, vim_item)
+      --   return vim_item
+      -- end
     })
   }
 

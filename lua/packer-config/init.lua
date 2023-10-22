@@ -10,8 +10,9 @@ return require('packer').startup(function(use)
   use "tpope/vim-commentary"
   -- https://github.com/tpope/vim-repeat
   use "tpope/vim-repeat"
-  -- https://github.com/EdenEast/nightfox.nvim
-  use "EdenEast/nightfox.nvim"
+  -- Colorschemes
+  use "EdenEast/nightfox.nvim" -- https://github.com/EdenEast/nightfox.nvim
+  use { "catppuccin/nvim", as = "catppuccin" } -- https://github.com/catppuccin/nvim
   -- Dev icons for file explorer
   use "nvim-tree/nvim-web-devicons"
   -- https://github.com/romgrk/barbar.nvim
@@ -20,6 +21,8 @@ return require('packer').startup(function(use)
   use 'rcarriga/nvim-notify'
   -- https://github.com/nvim-tree/nvim-tree.lua
   use "nvim-tree/nvim-tree.lua"
+  -- https://github.com/kosayoda/nvim-lightbulb
+  use { 'kosayoda/nvim-lightbulb' }
 
   -- https://github.com/zbirenbaum/copilot.lua
   use {
