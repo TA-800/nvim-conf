@@ -1,25 +1,26 @@
 -- https://github.com/nanotee/nvim-lua-guide
 -- Lua Guide ^
 
-require('settings') -- Leader is set to space in settings/init.lua
-require('packer-config')
-require('presence-config')
-require('mappings')
-require('lualine-config')
-require('nvim-tree-config')
-require('barbar-config')
-require('toggleterm-config')
-require('autopair-config')
-require("textobjects-config")
--- vim.cmd('colorscheme carbonfox')
-require('colorscheme-config')
+require('config-settings') -- Leader is set to space in settings/init.lua
+require('config-packer')
+require('config-presence')
+require('config-mappings')
+require('config-lualine')
+require('config-nvimtree')
+require('config-barbar')
+require('config-toggleterm')
+require('config-autopair')
+require('config-textobjects')
+-- require('config-copilot') This is only needed in lualine, not here
+require('config-colorscheme')
 vim.cmd('colorscheme catppuccin-mocha')
+-- vim.cmd('colorscheme carbonfox')
 
 -- LSPs
-require('mason-config')
-require('lsp-config.language-servers')
-require('lsp-config.nvim-cmp')
-require('lsp-config.lightbulb')
+require('config-mason')
+require('config-lsp.language-servers')
+require('config-lsp.nvim-cmp')
+require('config-lsp.lightbulb')
 
 -- Treesitter
-require('treesitter-config')
+require('config-treesitter')

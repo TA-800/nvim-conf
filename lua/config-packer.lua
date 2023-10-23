@@ -11,7 +11,7 @@ return require('packer').startup(function(use)
   -- https://github.com/tpope/vim-repeat
   use "tpope/vim-repeat"
   -- Colorschemes
-  use "EdenEast/nightfox.nvim" -- https://github.com/EdenEast/nightfox.nvim
+  -- use "EdenEast/nightfox.nvim" -- https://github.com/EdenEast/nightfox.nvim
   use { "catppuccin/nvim", as = "catppuccin" } -- https://github.com/catppuccin/nvim
   -- Dev icons for file explorer
   use "nvim-tree/nvim-web-devicons"
