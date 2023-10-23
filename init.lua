@@ -12,6 +12,7 @@ require('toggleterm-config')
 require('autopair-config')
 require("textobjects-config")
 -- vim.cmd('colorscheme carbonfox')
+require('colorscheme-config')
 vim.cmd('colorscheme catppuccin-mocha')
 
 -- LSPs
