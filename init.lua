@@ -28,3 +28,4 @@ require('config-nvimdapui')
 
 -- Treesitter
 require('config-treesitter')
+require('config-ufo') -- Folding

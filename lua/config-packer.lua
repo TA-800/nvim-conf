@@ -23,6 +23,8 @@ return require('packer').startup(function(use)
   use "nvim-tree/nvim-tree.lua"
   -- https://github.com/kosayoda/nvim-lightbulb
   use { 'kosayoda/nvim-lightbulb' }
+  -- https://github.com/kevinhwang91/nvim-ufo
+  use {'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async'}
 
   -- https://github.com/zbirenbaum/copilot.lua
   use {

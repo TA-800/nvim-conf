@@ -85,12 +85,15 @@ o.smoothscroll = true
 -- When running macros and regexes on a large file, lazy redraw tells neovim/vim not to draw the screen
 -- o.lazyredraw = true
 
--- Better folds (don't fold by default)
--- o.foldmethod = 'indent'
--- o.foldlevelstart = 99
--- o.foldnestmax = 3
+-- UFO folding https://github.com/kevinhwang91/nvim-ufo/issues/4  Read comments for configs
+o.foldcolumn = "1" -- '0' is not bad
+o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
+o.foldlevelstart = 99
+o.foldenable = true
+o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
+-- Default mappings to open / close folds: za (toggle, one level), zA (toggle, all levels)
+-- More settings in config-ufo
 
--- o.foldminlines = 1
 
 -- Highlight yanked text for 200ms
 vim.api.nvim_create_autocmd('TextYankPost', {
@@ -98,6 +101,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     vim.highlight.on_yank({ timeout = 200 })
   end,
 })
+
 -- Map <leader> to space
 g.mapleader = ' '
 g.maplocalleader = ' '
