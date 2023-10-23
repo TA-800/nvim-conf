@@ -67,6 +67,16 @@ return require('packer').startup(function(use)
   use "rafamadriz/friendly-snippets" -- Snippets collection
   use 'onsails/lspkind.nvim'         -- Icons for autocomplete
 
+  -- https://github.com/mfussenegger/nvim-dap
+  use "mfussenegger/nvim-dap"
+  -- https://github.com/rcarriga/nvim-dap-ui
+  use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } } -- setup in config-mason.lua
+  -- https://github.com/jay-babu/mason-nvim-dap.nvim
+  use { "jay-babu/mason-nvim-dap.nvim", requires = {
+    "mfussenegger/nvim-dap",
+    "rcarriga/nvim-dap-ui"
+  } }
+
   -- https://github.com/nvim-treesitter/nvim-treesitter
   use {
     'nvim-treesitter/nvim-treesitter',

@@ -11,6 +11,7 @@ require('config-barbar')
 require('config-toggleterm')
 require('config-autopair')
 require('config-textobjects')
+require('config-neodev')
 -- require('config-copilot') This is only needed in lualine, not here
 require('config-colorscheme')
 vim.cmd('colorscheme catppuccin-mocha')
@@ -21,6 +22,9 @@ require('config-mason')
 require('config-lsp.language-servers')
 require('config-lsp.nvim-cmp')
 require('config-lsp.lightbulb')
+
+-- DAP
+require('config-nvimdapui')
 
 -- Treesitter
 require('config-treesitter')
