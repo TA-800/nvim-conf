@@ -24,7 +24,7 @@ return require('packer').startup(function(use)
   -- https://github.com/kosayoda/nvim-lightbulb
   use { 'kosayoda/nvim-lightbulb' }
   -- https://github.com/kevinhwang91/nvim-ufo
-  use {'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async'}
+  use { 'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async' }
 
   -- https://github.com/zbirenbaum/copilot.lua
   use {
@@ -68,6 +68,12 @@ return require('packer').startup(function(use)
   use 'L3MON4D3/LuaSnip'             -- Snippets plugin
   use "rafamadriz/friendly-snippets" -- Snippets collection
   use 'onsails/lspkind.nvim'         -- Icons for autocomplete
+  -- https://github.com/rmagatti/goto-preview
+  use { 'rmagatti/goto-preview',
+    config = function()
+      require('goto-preview').setup {} -- Use <C-w>w to focus to preview window when off of it
+    end
+  }
 
   -- https://github.com/mfussenegger/nvim-dap
   use "mfussenegger/nvim-dap"

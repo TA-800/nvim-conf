@@ -35,6 +35,12 @@ map('n', '<leader>j', '<CMD>join<CR>')
 
 -- Search visually selected text
 map('v', '/', "\"fy/\\V<C-R>f<CR>")
+
+-- Shift Left, Up, Right, Down to increase / decrease window sizes (widths / heights)
+map("n", "<S-Left>", "<CMD>vertical resize -1<CR>")
+map("n", "<S-Right>", "<CMD>vertical resize +1<CR>")
+map("n", "<S-Down>", "<CMD>resize -1<CR>")
+map("n", "<S-Up>", "<CMD>resize +1<CR>")
 ----------------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------
 -- From ThePrimeagen 0 to LSP video
