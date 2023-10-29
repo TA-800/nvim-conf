@@ -26,6 +26,9 @@ require('config-lsp.lightbulb')
 -- DAP
 require('config-nvimdapui')
 
+-- Formatter
+require('config-formatter')
+
 -- Treesitter
 require('config-treesitter')
 require('config-ufo') -- Folding

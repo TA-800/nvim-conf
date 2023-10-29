@@ -75,6 +75,9 @@ return require('packer').startup(function(use)
     end
   }
 
+  -- https://github.com/mfussenegger/nvim-jdtls
+  use 'mfussenegger/nvim-jdtls'
+
   -- https://github.com/mfussenegger/nvim-dap
   use "mfussenegger/nvim-dap"
   -- https://github.com/rcarriga/nvim-dap-ui
@@ -84,6 +87,9 @@ return require('packer').startup(function(use)
     "mfussenegger/nvim-dap",
     "rcarriga/nvim-dap-ui"
   } }
+
+  -- https://github.com/stevearc/conform.nvim#installation
+  use "stevearc/conform.nvim"
 
   -- https://github.com/nvim-treesitter/nvim-treesitter
   use {
@@ -97,3 +103,4 @@ return require('packer').startup(function(use)
   use "nvim-treesitter/nvim-treesitter-textobjects" -- Textobjects for nvim-treesitter
   -- https://www.reddit.com/r/neovim/comments/wiamjt/comment/ijae8yc/?utm_source=share&utm_medium=web2x&context=3
 end)
+
