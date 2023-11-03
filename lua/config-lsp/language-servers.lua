@@ -40,7 +40,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
-local servers = { 'pyright', 'clangd', 'lua_ls', 'texlab', }
+local servers = { 'pyright', 'clangd', 'lua_ls', 'texlab', 'yamlls' }
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
     -- on_attach = my_custom_on_attach,

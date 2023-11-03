@@ -13,9 +13,6 @@ require('config-autopair')
 require('config-textobjects')
 require('config-neodev')
 -- require('config-copilot') This is only needed in lualine, not here
--- require('config-colorscheme')
--- vim.cmd('colorscheme catppuccin-mocha')
--- vim.cmd('colorscheme carbonfox')
 vim.cmd('colorscheme gruvbox-baby')
 
 -- LSPs

@@ -23,14 +23,11 @@ map('i', '<C-a>', '<CMD>normal! ggVG<CR>')
 map('n', 'J', '5j')
 map('n', 'K', '5k')
 
--- Insert mode common typing keybinds
 -- Ctrl + h,j,k,l to move left (one char), down (one line), up (one line), right (one char)
 map('i', '<C-h>', '<left>')
 map('i', '<C-j>', '<down>')
 map('i', '<C-k>', '<up>')
 map('i', '<C-l>', '<right>')
--- Ctrl + v to paste in insert and command mode
-map('i', '<C-v>', '<CMD>normal! i<C-r>+<CR>')
 
 -- Leader key + j to join line with line below cursor
 map('n', '<leader>j', '<CMD>join<CR>')
@@ -40,7 +37,9 @@ map('v', '/', "\"fy/\\V<C-R>f<CR>")
 
 -- Put visually selected text into a substitute command with replacement ready to be typed in
 -- https://stackoverflow.com/questions/676600/vim-search-and-replace-selected-text
-map('v', '<leader>s', "\"fy:%s/<C-R>f//gc<left><left><left>")
+map('v', '<leader>s', "\"fy:%s:<C-R>f::gc<left><left><left>")
+-- Yank whatever visually selected into f register, go into ex command mode
+-- : -> to start ex command, %s -> whole file substitute, : -> separator, <C-R>f -> paste f register, : -> separator, : -> separator, gc -> global and confirm, <left><left><left> -> move cursor to position where replacement text should be typed in.
 
 -- Shift Left, Up, Right, Down to increase / decrease window sizes (widths / heights)
 map("n", "<S-Left>", "<CMD>vertical resize -1<CR>")
