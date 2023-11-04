@@ -4,9 +4,6 @@ local o = vim.o
 -- cmd('syntax on')
 -- vim.api.nvim_command('filetype plugin indent on')
 
--- Neovim notify plugin
-vim.notify = require("notify")
-
 -- Disabling netrw for nvim-tree plugin
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
@@ -22,7 +19,7 @@ o.timeoutlen = 500
 o.updatetime = 200
 
 -- Number of screen lines to keep above and below the cursor
-o.scrolloff = 8
+o.scrolloff = 5
 
 -- Better editor UI
 o.number = true
@@ -38,7 +35,7 @@ o.cindent = true
 -- o.autoindent = true
 o.wrap = true
 o.textwidth = 300
-o.tabstop = 2
+o.tabstop = 4
 o.shiftwidth = 0
 o.softtabstop = -1 -- If negative, shiftwidth value is used
 o.list = true
@@ -62,8 +59,8 @@ o.swapfile = false
 -- o.directory = '/tmp/'
 -- o.undodir = '/tmp/'
 
--- Remember 75 items in commandline history
-o.history = 75
+-- Remember 100 items in commandline history
+o.history = 100
 
 -- Better buffer splitting
 o.splitright = true
@@ -87,7 +84,7 @@ o.smoothscroll = true
 
 -- UFO folding https://github.com/kevinhwang91/nvim-ufo/issues/4  Read comments for configs
 o.foldcolumn = "1" -- '0' is not bad
-o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
+o.foldlevel = 99   -- Using ufo provider need a large value, feel free to decrease the value
 o.foldlevelstart = 99
 o.foldenable = true
 o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
@@ -105,3 +102,4 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 -- Map <leader> to space
 g.mapleader = ' '
 g.maplocalleader = ' '
+
