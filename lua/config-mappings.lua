@@ -1,7 +1,7 @@
 -- https://github.com/numToStr/dotfiles/blob/master/neovim/.config/nvim/lua/numToStr/keybinds.lua
 -- Creating a custom function to map keybinds more easily
 local function map(m, k, v)
-  vim.keymap.set(m, k, v, { silent = true })
+    vim.keymap.set(m, k, v, { silent = true })
 end
 
 -- Make C-b the shortcut to open / close the File explorer
@@ -16,8 +16,6 @@ map('n', '<leader>fg', '<CMD>Telescope live_grep<CR>')
 
 -- Ctrl + s to save in normal and insert mode
 map({ 'i', 'n', 'v' }, '<C-s>', '<CMD>w<CR>')
--- Ctrl + a to select all in insert mode
-map('i', '<C-a>', '<CMD>normal! ggVG<CR>')
 
 -- J and K to move up and down 5 lines
 map('n', 'J', '5j')

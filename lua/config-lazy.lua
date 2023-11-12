@@ -69,23 +69,24 @@ local plugins = {
     {
         'nvim-telescope/telescope.nvim',
         version = '0.1.4',
-        dependencies = { { 'nvim-lua/plenary.nvim' } }
+        dependencies = { 'nvim-lua/plenary.nvim', 'debugloop/telescope-undo.nvim' }
     },
+
     -- https://github.com/michaeljsmith/vim-indent-object
     "michaeljsmith/vim-indent-object", -- Text objects for indentation levels
-    "echasnovski/mini.ai",           -- More textobjects and improved motions
+    "echasnovski/mini.ai",             -- More textobjects and improved motions
     -- https://github.com/williamboman/mason.nvim
-    "williamboman/mason.nvim",       -- LSP Installer
+    "williamboman/mason.nvim",         -- LSP Installer
     "williamboman/mason-lspconfig.nvim",
 
     -- https://github.com/neovim/nvim-lspconfig
     "neovim/nvim-lspconfig",
-    'hrsh7th/nvim-cmp',           -- Autocompletion plugin
-    'hrsh7th/cmp-nvim-lsp',       -- LSP source for nvim-cmp
-    'saadparwaiz1/cmp_luasnip',   -- Snippets source for nvim-cmp
-    'L3MON4D3/LuaSnip',           -- Snippets plugin
+    'hrsh7th/nvim-cmp',             -- Autocompletion plugin
+    'hrsh7th/cmp-nvim-lsp',         -- LSP source for nvim-cmp
+    'saadparwaiz1/cmp_luasnip',     -- Snippets source for nvim-cmp
+    'L3MON4D3/LuaSnip',             -- Snippets plugin
     "rafamadriz/friendly-snippets", -- Snippets collection
-    'onsails/lspkind.nvim',       -- Icons for autocomplete
+    'onsails/lspkind.nvim',         -- Icons for autocomplete
     -- https://github.com/rmagatti/goto-preview
     {
         'rmagatti/goto-preview',
@@ -116,10 +117,10 @@ local plugins = {
         'nvim-treesitter/nvim-treesitter',
         build = ':TSUpdate'
     },
-    "nvim-treesitter/nvim-treesitter-refactor",  -- Refactoring support for nvim-treesitter
+    "nvim-treesitter/nvim-treesitter-refactor",    -- Refactoring support for nvim-treesitter
     "andymass/vim-matchup",
-    "windwp/nvim-autopairs",                     -- Autopairs for nvim
-    "windwp/nvim-ts-autotag",                    -- Autotag for nvim-treesitter (HTML, JSX, TSX)
+    "windwp/nvim-autopairs",                       -- Autopairs for nvim
+    "windwp/nvim-ts-autotag",                      -- Autotag for nvim-treesitter (HTML, JSX, TSX)
     "nvim-treesitter/nvim-treesitter-textobjects", -- Textobjects for nvim-treesitter
     -- https://www.reddit.com/r/neovim/comments/wiamjt/comment/ijae8yc/?utm_source=share&utm_medium=web2x&context=3
 }

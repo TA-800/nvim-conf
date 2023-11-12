@@ -9,11 +9,11 @@ require('config-lualine')
 require('config-nvimtree')
 require('config-barbar')
 require('config-toggleterm')
+require('config-telescope')
 require('config-autopair')
-require('config-textobjects')
 require('config-neodev')
--- require('config-copilot') -- Copilot config in lualine for copilot status indicator
 vim.cmd('colorscheme gruvbox-baby')
+-- require('config-copilot') -- Copilot config in lualine for copilot status indicator
 
 -- LSPs
 require('config-mason')
@@ -29,5 +29,6 @@ require('config-formatter')
 
 -- Treesitter
 require('config-treesitter')
-require('config-ufo') -- Folding
+require('config-ufo')          -- Folding
+require('config-moretextobjs') -- Text objects from mini.ai
 
