@@ -7,7 +7,7 @@ conform.setup({
         -- Conform will run multiple formatters sequentially
         -- python = { "isort", "black" },
         -- Use a sub-list to run only the first available formatter
-        javascript = { "prettierd" },
+        -- javascript = { "prettierd" },
         c = { "clang-format" },
         cpp = { "clang-format" },
 

@@ -22,9 +22,7 @@ local plugins = {
     -- https://github.com/tpope/vim-repeat
     "tpope/vim-repeat",
     -- Colorschemes
-    --  "EdenEast/nightfox.nvim" -- https://github.com/EdenEast/nightfox.nvim
-    --  { "catppuccin/nvim", as = "catppuccin" } -- https://github.com/catppuccin/nvim
-    "luisiacc/gruvbox-baby", -- https://github.com/luisiacc/gruvbox-baby
+    "sainnhe/gruvbox-material",
     -- Dev icons for file explorer
     "nvim-tree/nvim-web-devicons",
     -- https://github.com/romgrk/barbar.nvim

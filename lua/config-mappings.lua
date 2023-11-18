@@ -12,7 +12,7 @@ map('n', '<leader>ff', '<CMD>Telescope find_files<CR>')
 map('n', '<leader>fg', '<CMD>Telescope live_grep<CR>')
 
 -- Terminal mappings (defined in toggleterm-config)
--- Ctrl + \ to open terminal in normal and insert mode, [count]Ctrl + \ to open numbered terminal (for multiple terms), esc to switch to normal mode in terminal
+-- Ctrl + \ to open terminal in normal and insert mode, [number]Ctrl + \ to open numbered terminal (for multiple terms), esc to switch to normal mode in terminal
 
 -- Ctrl + s to save in normal and insert mode
 map({ 'i', 'n', 'v' }, '<C-s>', '<CMD>w<CR>')
@@ -35,7 +35,7 @@ map('v', '/', "\"fy/\\V<C-R>f<CR>")
 
 -- Put visually selected text into a substitute command with replacement ready to be typed in
 -- https://stackoverflow.com/questions/676600/vim-search-and-replace-selected-text
-map('v', '<leader>s', "\"fy:%s:<C-R>f::gc<left><left><left>")
+map('v', '<leader>s', "\"fy:%s/<C-R>f//gc<left><left><left>")
 -- Yank whatever visually selected into f register, go into ex command mode
 -- : -> to start ex command, %s -> whole file substitute, : -> separator, <C-R>f -> paste f register, : -> separator, : -> separator, gc -> global and confirm, <left><left><left> -> move cursor to position where replacement text should be typed in.
 
