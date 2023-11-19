@@ -40,6 +40,14 @@ local plugins = {
     'kosayoda/nvim-lightbulb',
     -- https://github.com/kevinhwang91/nvim-ufo
     { 'kevinhwang91/nvim-ufo',   dependencies = 'kevinhwang91/promise-async' },
+    -- https://github.com/lukas-reineke/indent-blankline.nvim
+    {
+        "lukas-reineke/indent-blankline.nvim",
+        main = "ibl",
+        opts = {
+            indent = { char = "│" },
+        }
+    },
 
     -- https://github.com/zbirenbaum/copilot.lua
     {
@@ -92,9 +100,11 @@ local plugins = {
             require('goto-preview').setup {} -- Use <C-w>w to focus to preview window when off of it
         end
     },
-
     -- https://github.com/mfussenegger/nvim-jdtls
+    -- LSP for Java
     'mfussenegger/nvim-jdtls',
+
+    -- Debug Adapter Protocol
     -- https://github.com/mfussenegger/nvim-dap
     "mfussenegger/nvim-dap",
     -- https://github.com/rcarriga/nvim-dap-ui
@@ -106,6 +116,12 @@ local plugins = {
             "mfussenegger/nvim-dap",
             "rcarriga/nvim-dap-ui"
         }
+    },
+    -- https://github.com/mfussenegger/nvim-dap-python
+    {
+        "mfussenegger/nvim-dap-python",
+        ft = "python",
+        dependencies = { "mfussenegger/nvim-dap", "rcarriga/nvim-dap-ui" }
     },
 
     -- https://github.com/stevearc/conform.nvim#installation

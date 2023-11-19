@@ -6,10 +6,14 @@ require('lualine').setup {
         theme = 'gruvbox-material',
         component_separators = "",
         section_separators = "",
-        disabled_filetypes = { "NvimTree" }
     },
     sections = {
         lualine_x = { copilot_status, "filetype" }
+    },
+    extensions = {
+        'nvim-tree',
+        'toggleterm',
+        'nvim-dap-ui',
     }
 
 }
