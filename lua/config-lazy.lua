@@ -93,11 +93,19 @@ local plugins = {
     'L3MON4D3/LuaSnip',             -- Snippets plugin
     "rafamadriz/friendly-snippets", -- Snippets collection
     'onsails/lspkind.nvim',         -- Icons for autocomplete
+    {
+        "hedyhli/outline.nvim",     -- Symbols outline
+        lazy = true,
+        cmd = { "Outline", "OutlineOpen" },
+        keys = { -- Example mapping to toggle outline
+            { "<leader>to", "<cmd>Outline<CR>", desc = "Toggle outline" },
+        }
+    },
     -- https://github.com/rmagatti/goto-preview
     {
         'rmagatti/goto-preview',
         config = function()
-            require('goto-preview').setup {} -- Use <C-w>w to focus to preview window when off of it
+            require('goto-preview').setup {} -- Use <C-w>w to focus preview window when off of it
         end
     },
     -- https://github.com/mfussenegger/nvim-jdtls

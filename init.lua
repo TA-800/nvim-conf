@@ -24,6 +24,7 @@ require('config-mason')
 require('config-lsp.language-servers')
 require('config-lsp.nvim-cmp')
 require('config-lsp.lightbulb')
+require('config-outline')
 
 -- DAP
 require('config-nvimdapui')
