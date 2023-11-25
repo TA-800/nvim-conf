@@ -116,7 +116,7 @@ local plugins = {
     -- https://github.com/mfussenegger/nvim-dap
     "mfussenegger/nvim-dap",
     -- https://github.com/rcarriga/nvim-dap-ui
-    { "rcarriga/nvim-dap-ui", dependencies = { "mfussenegger/nvim-dap" } }, -- setup in config-mason.lua
+    { "rcarriga/nvim-dap-ui", event = "VeryLazy", dependencies = { "mfussenegger/nvim-dap" } }, -- setup in config-mason.lua
     -- https://github.com/jay-babu/mason-nvim-dap.nvim
     {
         "jay-babu/mason-nvim-dap.nvim",

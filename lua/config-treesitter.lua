@@ -18,8 +18,15 @@ require 'nvim-treesitter.configs'.setup {
                 -- You can use the capture groups defined in textobjects.scm
                 ["af"] = "@function.outer",
                 ["if"] = "@function.inner",
+
                 ["aL"] = "@loop.outer",
                 ["iL"] = "@loop.inner",
+
+                ["aC"] = "@conditional.outer",
+                ["iC"] = "@conditional.inner",
+
+                ["ac"] = "@class.outer",
+                ["ic"] = "@class.inner",
             },
             -- If you set this to `true` (default is `false`) then any textobject is
             -- extended to include preceding or succeeding whitespace. Succeeding

@@ -27,7 +27,7 @@ require('config-lsp.lightbulb')
 require('config-outline')
 
 -- DAP
-require('config-nvimdapui')
+require('config-nvimdap')
 require('config-pythondap')
 
 -- Formatter
