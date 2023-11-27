@@ -6,6 +6,11 @@ dap.configurations.cpp = {
         name = "Launch file",
         type = "cppdbg",
         request = "launch",
+        -- https://www.reddit.com/r/neovim/comments/13saiet/comment/jlpv1rk/?utm_source=share&utm_medium=web2x&context=3
+        args = function()
+            local args_string = vim.fn.input("Arguments (if any): ")
+            return vim.split(args_string, " ")
+        end,
         program = function()
             return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
         end,
@@ -23,6 +28,8 @@ dap.configurations.cpp = {
 
 }
 
+-- For c dap config, just add args input
+dap.configurations.c = dap.configurations.cpp
 
 dapui.setup()
 dap.listeners.after.event_initialized["dapui_config"] = function()
