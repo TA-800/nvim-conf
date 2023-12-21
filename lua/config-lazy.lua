@@ -77,6 +77,7 @@ local plugins = {
         version = '0.1.4',
         dependencies = { 'nvim-lua/plenary.nvim', 'debugloop/telescope-undo.nvim' }
     },
+    { "folke/todo-comments.nvim", dependencies = "nvim-lua/plenary.nvim", opts = {} },
 
     -- https://github.com/michaeljsmith/vim-indent-object
     "michaeljsmith/vim-indent-object", -- Text objects for indentation levels
@@ -116,7 +117,7 @@ local plugins = {
     -- https://github.com/mfussenegger/nvim-dap
     "mfussenegger/nvim-dap",
     -- https://github.com/rcarriga/nvim-dap-ui
-    { "rcarriga/nvim-dap-ui", event = "VeryLazy", dependencies = { "mfussenegger/nvim-dap" } }, -- setup in config-mason.lua
+    { "rcarriga/nvim-dap-ui",     event = "VeryLazy",                     dependencies = { "mfussenegger/nvim-dap" } }, -- setup in config-mason.lua
     -- https://github.com/jay-babu/mason-nvim-dap.nvim
     {
         "jay-babu/mason-nvim-dap.nvim",

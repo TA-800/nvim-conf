@@ -30,15 +30,18 @@ vim.api.nvim_create_autocmd('LspAttach', {
         vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts)
         vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, opts)
         vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
+        -- Mapped to <c-k> but changed because that is used in insert mode to go up a line
+        vim.keymap.set('i', '<c-u>', vim.lsp.buf.signature_help, opts)
     end,
 })
+
 
 
 -- Add additional capabilities supported by nvim-cmp
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
-local servers = { 'pyright', 'clangd', 'lua_ls', 'texlab', 'yamlls', 'tsserver' }
+local servers = { 'pylsp', 'clangd', 'lua_ls', 'texlab', 'yamlls', 'tsserver' }
 for _, lsp in ipairs(servers) do
     lspconfig[lsp].setup {
         -- on_attach = my_custom_on_attach,
