@@ -30,15 +30,6 @@ map('i', '<C-l>', '<right>')
 -- Leader key + j to join line with line below cursor
 map('n', '<leader>j', '<CMD>join<CR>')
 
--- Search visually selected text
-map('v', '/', "\"fy/\\V<C-R>f<CR>")
-
--- Put visually selected text into a substitute command with replacement ready to be typed in
--- https://stackoverflow.com/questions/676600/vim-search-and-replace-selected-text
-map('v', '<leader>s', "\"fy:%s/<C-R>f//gc<left><left><left>")
--- Yank whatever visually selected into f register, go into ex command mode
--- : -> to start ex command, %s -> whole file substitute, : -> separator, <C-R>f -> paste f register, : -> separator, : -> separator, gc -> global and confirm, <left><left><left> -> move cursor to position where replacement text should be typed in.
-
 -- Shift Left, Up, Right, Down to increase / decrease window sizes (widths / heights)
 map("n", "<S-Left>", "<CMD>vertical resize -1<CR>")
 map("n", "<S-Right>", "<CMD>vertical resize +1<CR>")
@@ -65,24 +56,13 @@ map("i", "<C-c>", "<Esc>")
 -- Move to previous/next
 map('n', '<A-,>', '<Cmd>BufferPrevious<CR>')
 map('n', '<A-.>', '<Cmd>BufferNext<CR>')
+-- Close buffer
+map('n', '<A-c>', '<Cmd>BufferClose<CR>')
 -- Re-order to previous/next
 map('n', '<A-<>', '<Cmd>BufferMovePrevious<CR>')
 map('n', '<A->>', '<Cmd>BufferMoveNext<CR>')
--- Goto buffer in position...
-map('n', '<A-1>', '<Cmd>BufferGoto 1<CR>')
-map('n', '<A-2>', '<Cmd>BufferGoto 2<CR>')
-map('n', '<A-3>', '<Cmd>BufferGoto 3<CR>')
-map('n', '<A-4>', '<Cmd>BufferGoto 4<CR>')
-map('n', '<A-5>', '<Cmd>BufferGoto 5<CR>')
-map('n', '<A-6>', '<Cmd>BufferGoto 6<CR>')
-map('n', '<A-7>', '<Cmd>BufferGoto 7<CR>')
-map('n', '<A-8>', '<Cmd>BufferGoto 8<CR>')
-map('n', '<A-9>', '<Cmd>BufferGoto 9<CR>')
-map('n', '<A-0>', '<Cmd>BufferLast<CR>')
 -- Pin/unpin buffer
 map('n', '<A-p>', '<Cmd>BufferPin<CR>')
--- Close buffer
-map('n', '<A-c>', '<Cmd>BufferClose<CR>')
 -- Wipeout buffer
 --                 :BufferWipeout
 -- Close commands
@@ -93,11 +73,6 @@ map('n', '<A-c>', '<Cmd>BufferClose<CR>')
 --                 :BufferCloseBuffersRight
 -- Magic buffer-picking mode
 map('n', '<C-p>', '<Cmd>BufferPick<CR>')
--- Sort automatically by...
-map('n', '<Space>bb', '<Cmd>BufferOrderByBufferNumber<CR>')
-map('n', '<Space>bd', '<Cmd>BufferOrderByDirectory<CR>')
-map('n', '<Space>bl', '<Cmd>BufferOrderByLanguage<CR>')
-map('n', '<Space>bw', '<Cmd>BufferOrderByWindowNumber<CR>')
 ----------------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------
 
