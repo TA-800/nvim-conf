@@ -79,11 +79,9 @@ local plugins = {
     },
     { "folke/todo-comments.nvim", dependencies = "nvim-lua/plenary.nvim", opts = {} },
 
-    -- https://github.com/michaeljsmith/vim-indent-object
-    "michaeljsmith/vim-indent-object", -- Text objects for indentation levels
-    "echasnovski/mini.ai",             -- More textobjects and improved motions
+    "echasnovski/mini.ai",     -- More textobjects and improved motions
     -- https://github.com/williamboman/mason.nvim
-    "williamboman/mason.nvim",         -- LSP Installer
+    "williamboman/mason.nvim", -- LSP Installer
     "williamboman/mason-lspconfig.nvim",
 
     -- https://github.com/neovim/nvim-lspconfig
