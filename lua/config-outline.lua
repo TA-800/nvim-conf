@@ -1,2 +1,0 @@
-require("outline").setup({})
-

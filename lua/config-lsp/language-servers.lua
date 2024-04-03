@@ -22,16 +22,13 @@ vim.api.nvim_create_autocmd('LspAttach', {
         -- See `:help vim.lsp.*` for documentation on any of the below functions
         local opts = { buffer = ev.buf }
         -- vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts) -- Go to definition || Already mapped to treesitter, will fallback to lsp
-        -- https://github.com/rmagatti/goto-preview
-        vim.keymap.set("n", "gp", "<cmd>lua require('goto-preview').goto_preview_definition()<CR>", { noremap = true })
         -- vim.keymap.set("n", "gi", "<cmd>lua require('goto-preview').goto_preview_implementation()<CR>", { noremap = true })
+        -- vim.keymap.set('n', 'gr', "vim.lsp.buf.references", opts) -- Uses Trouble.nvim references
         vim.keymap.set('n', 'gh', vim.lsp.buf.hover, opts)
-        -- vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, opts)
         vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts)
         vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, opts)
-        vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
-        -- Mapped to <c-k> but changed because that is used in insert mode to go up a line
-        vim.keymap.set('i', '<c-u>', vim.lsp.buf.signature_help, opts)
+        vim.keymap.set("n", "gp", "<cmd>lua require('goto-preview').goto_preview_definition()<CR>", { noremap = true }) -- Uses goto-preview.nvim
+        vim.keymap.set('i', '<c-u>', vim.lsp.buf.signature_help, opts)                                                  -- Original <c-k>, now u
     end,
 })
 
@@ -41,7 +38,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
-local servers = { 'pylsp', 'clangd', 'lua_ls', 'texlab', 'yamlls', 'tsserver' }
+local servers = { 'pylsp', 'clangd', 'lua_ls', 'texlab', 'yamlls', 'tsserver', 'omnisharp' }
 for _, lsp in ipairs(servers) do
     lspconfig[lsp].setup {
         -- on_attach = my_custom_on_attach,
@@ -71,4 +68,3 @@ lspconfig.lua_ls.setup({
         }
     }
 })
-

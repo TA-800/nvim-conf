@@ -12,35 +12,26 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+-- Auto lazy loading when 1) plugin exists only as dependency 2) plugin has "event", "cmd", "ft" or "keys" key 3) config.defaults.lazy = true
+
 local plugins = {
-    -- Discord rich presence
+
     'andweeb/presence.nvim',
-    -- https://github.com/tpope/vim-surround
     'tpope/vim-surround',
-    -- https://github.com/tpope/vim-commentary
     "tpope/vim-commentary",
-    -- https://github.com/tpope/vim-repeat
     "tpope/vim-repeat",
-    -- Colorschemes
     "sainnhe/gruvbox-material",
-    -- Dev icons for file explorer
     "nvim-tree/nvim-web-devicons",
-    -- https://github.com/romgrk/barbar.nvim
-    "romgrk/barbar.nvim", -- Tabs
-    -- https://github.com/rcarriga/nvim-notify
+    "nvim-lualine/lualine.nvim",
+    "nvim-tree/nvim-tree.lua",
+    "romgrk/barbar.nvim",
     {
         'rcarriga/nvim-notify',
         config = function()
             vim.notify = require('notify')
         end
     },
-    -- https://github.com/nvim-tree/nvim-tree.lua
-    "nvim-tree/nvim-tree.lua",
-    -- https://github.com/kosayoda/nvim-lightbulb
-    'kosayoda/nvim-lightbulb',
-    -- https://github.com/kevinhwang91/nvim-ufo
     { 'kevinhwang91/nvim-ufo',   dependencies = 'kevinhwang91/promise-async' },
-    -- https://github.com/lukas-reineke/indent-blankline.nvim
     {
         "lukas-reineke/indent-blankline.nvim",
         main = "ibl",
@@ -48,75 +39,53 @@ local plugins = {
             indent = { char = "│" },
         }
     },
-
-    -- https://github.com/zbirenbaum/copilot.lua
+    { "akinsho/toggleterm.nvim", version = '*' },
     {
-        -- Lazy load copilot because it takes a while to connect to server
-        -- So we need to define config function here
+        'nvim-telescope/telescope.nvim',
+        version = '0.1.6',
+        dependencies = { 'nvim-lua/plenary.nvim' }
+    },
+    {
+        -- Lazy load copilot as it takes time to connect to server, need to define config function here
         "zbirenbaum/copilot.lua",
         cmd = "Copilot",
         event = "InsertEnter",
         config = function()
             require("copilot").setup({
-                -- https://github.com/zbirenbaum/copilot.lua#setup-and-configuration
                 suggestion = {
                     auto_trigger = true
                 }
             })
         end
     },
-    -- https://github.com/nvim-lualine/lualine.nvim
-    "nvim-lualine/lualine.nvim",
-    -- https://github.com/folke/neodev.nvim
-    "folke/neodev.nvim", -- Neovim kit for Lua Development
-    -- https://github.com/akinsho/toggleterm.nvim
-    { "akinsho/toggleterm.nvim", version = '*' },
-    -- https://github.com/nvim-telescope/telescope.nvim#pickers
     {
-        'nvim-telescope/telescope.nvim',
-        version = '0.1.4',
-        dependencies = { 'nvim-lua/plenary.nvim', 'debugloop/telescope-undo.nvim' }
+        "folke/todo-comments.nvim",
+        dependencies = "nvim-lua/plenary.nvim",
+        opts = {}
     },
-    { "folke/todo-comments.nvim", dependencies = "nvim-lua/plenary.nvim", opts = {} },
 
-    "echasnovski/mini.ai",     -- More textobjects and improved motions
-    -- https://github.com/williamboman/mason.nvim
-    "williamboman/mason.nvim", -- LSP Installer
-    "williamboman/mason-lspconfig.nvim",
-
-    -- https://github.com/neovim/nvim-lspconfig
+    -- LSP (mostly)
+    "folke/neodev.nvim",                 -- Neovim kit for Lua Development
+    "williamboman/mason.nvim",           -- LSP Installer
+    "williamboman/mason-lspconfig.nvim", -- LSP Configs for Mason
     "neovim/nvim-lspconfig",
-    'hrsh7th/nvim-cmp',             -- Autocompletion plugin
-    'hrsh7th/cmp-nvim-lsp',         -- LSP source for nvim-cmp
-    'saadparwaiz1/cmp_luasnip',     -- Snippets source for nvim-cmp
-    'L3MON4D3/LuaSnip',             -- Snippets plugin
-    "rafamadriz/friendly-snippets", -- Snippets collection
-    'onsails/lspkind.nvim',         -- Icons for autocomplete
-    {
-        "hedyhli/outline.nvim",     -- Symbols outline
-        lazy = true,
-        cmd = { "Outline", "OutlineOpen" },
-        keys = { -- Example mapping to toggle outline
-            { "<leader>to", "<cmd>Outline<CR>", desc = "Toggle outline" },
-        }
-    },
-    -- https://github.com/rmagatti/goto-preview
+    'hrsh7th/nvim-cmp',                  -- Autocompletion plugin
+    'hrsh7th/cmp-nvim-lsp',              -- LSP source for nvim-cmp
+    'saadparwaiz1/cmp_luasnip',          -- Snippets source for nvim-cmp
+    'L3MON4D3/LuaSnip',                  -- Snippets plugin
+    "rafamadriz/friendly-snippets",      -- Snippets collection
+    'onsails/lspkind.nvim',              -- Icons for autocomplete
     {
         'rmagatti/goto-preview',
         config = function()
             require('goto-preview').setup {} -- Use <C-w>w to focus preview window when off of it
         end
     },
-    -- https://github.com/mfussenegger/nvim-jdtls
-    -- LSP for Java
-    'mfussenegger/nvim-jdtls',
+    'kosayoda/nvim-lightbulb',
 
-    -- Debug Adapter Protocol
-    -- https://github.com/mfussenegger/nvim-dap
-    "mfussenegger/nvim-dap",
-    -- https://github.com/rcarriga/nvim-dap-ui
-    { "rcarriga/nvim-dap-ui",     event = "VeryLazy",                     dependencies = { "mfussenegger/nvim-dap" } }, -- setup in config-mason.lua
-    -- https://github.com/jay-babu/mason-nvim-dap.nvim
+    'mfussenegger/nvim-jdtls', -- LSP for Java
+    "mfussenegger/nvim-dap",   -- Debug Adapter Protocol
+    { "rcarriga/nvim-dap-ui", dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" } },
     {
         "jay-babu/mason-nvim-dap.nvim",
         dependencies = {
@@ -124,29 +93,36 @@ local plugins = {
             "rcarriga/nvim-dap-ui"
         }
     },
-    -- https://github.com/mfussenegger/nvim-dap-python
     {
         "mfussenegger/nvim-dap-python",
         ft = "python",
         dependencies = { "mfussenegger/nvim-dap", "rcarriga/nvim-dap-ui" }
     },
+    {
+        "folke/trouble.nvim", -- LSP diagnostics
+        branch = "dev",       -- TODO: Remove this when it's merged
+        lazy = false,
+        keys = {
+            { "<leader>tt", "<cmd>Trouble diagnostics toggle focus=true<cr>" },
+            { "<leader>to", "<cmd>Trouble symbols toggle focus=true<cr>" },
+            { "gr",         "<cmd>Trouble lsp_references focus=true<cr>" }
+        },
+    },
 
-    -- https://github.com/stevearc/conform.nvim#installation
+    -- TREE-SITTER
     "stevearc/conform.nvim",
-    -- https://github.com/nvim-treesitter/nvim-treesitter
     {
         'nvim-treesitter/nvim-treesitter',
         build = ':TSUpdate'
     },
     "nvim-treesitter/nvim-treesitter-refactor",    -- Refactoring support for nvim-treesitter
-    "andymass/vim-matchup",
     "windwp/nvim-autopairs",                       -- Autopairs for nvim
     "windwp/nvim-ts-autotag",                      -- Autotag for nvim-treesitter (HTML, JSX, TSX)
     "nvim-treesitter/nvim-treesitter-textobjects", -- Textobjects for nvim-treesitter
+    "echasnovski/mini.ai",                         -- More textobjects and improved motions
     -- https://www.reddit.com/r/neovim/comments/wiamjt/comment/ijae8yc/?utm_source=share&utm_medium=web2x&context=3
 }
 
 local opts = {}
 
 require("lazy").setup(plugins, opts)
-

@@ -3,11 +3,11 @@ local conform = require("conform")
 -- https://github.com/stevearc/conform.nvim#options
 conform.setup({
     formatters_by_ft = {
-        -- lua = { "stylua" },
+        lua = { "stylua" },
         -- Conform will run multiple formatters sequentially
-        -- python = { "isort", "black" },
+        python = { "isort", "black" },
         -- Use a sub-list to run only the first available formatter
-        -- javascript = { "prettierd" },
+        javascript = { "prettierd" },
         c = { "clang-format" },
         cpp = { "clang-format" },
 
@@ -26,4 +26,3 @@ vim.keymap.set("n", "<leader>f", function()
         timeout_ms = 500
     })
 end)
-
