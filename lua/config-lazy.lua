@@ -20,11 +20,7 @@ local plugins = {
     'tpope/vim-surround',
     "tpope/vim-commentary",
     "tpope/vim-repeat",
-    -- "sainnhe/gruvbox-material",
-    {
-        "rebelot/kanagawa.nvim",
-        opts = { keywordStyle = { italic = false } }
-    },
+    "sainnhe/gruvbox-material",
     "nvim-tree/nvim-web-devicons",
     "ibhagwan/fzf-lua", -- FZF (Telescope alternative)
     "nvim-lualine/lualine.nvim",

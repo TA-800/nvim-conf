@@ -1,23 +1,17 @@
--- https://github.com/nanotee/nvim-lua-guide
--- Lua Guide ^
-
-
 require('config-settings') -- Leader is set to space in settings/init.lua. Must happen before plugin manager
 require('config-lazy')
 require('config-presence')
 require('config-mappings')
-require('config-lualine')
+require('config-lualine') -- Copilot config partially in lualine, rest in lazy.nvim
 require('config-nvimtree')
 require('config-barbar')
 require('config-toggleterm')
 require('config-autopair')
 require('config-neodev')
 
--- Disable italics in comments, :h gruvbox-material
--- vim.cmd("let g:gruvbox_material_disable_italic_comment = 1")
--- vim.cmd("colorscheme gruvbox-material")
-vim.cmd("colorscheme kanagawa-dragon")
--- require('config-copilot') -- Copilot config in lualine for copilot status indicator
+vim.cmd("let g:gruvbox_material_background = 'hard'")
+vim.cmd("let g:gruvbox_material_foreground = 'hard'")
+vim.cmd("colorscheme gruvbox-material")
 
 -- LSPs
 require('config-mason')
