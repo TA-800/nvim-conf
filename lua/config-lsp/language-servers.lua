@@ -23,7 +23,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
         local opts = { buffer = ev.buf }
         -- vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts) -- Go to definition || Already mapped to treesitter, will fallback to lsp
         -- vim.keymap.set("n", "gi", "<cmd>lua require('goto-preview').goto_preview_implementation()<CR>", { noremap = true })
-        -- vim.keymap.set('n', 'gr', "vim.lsp.buf.references", opts) -- Uses Trouble.nvim references
+        -- vim.keymap.set('n', 'gr', "vim.lsp.buf.references", opts) -- Uses FzfLua lsp_references
         vim.keymap.set('n', 'gh', vim.lsp.buf.hover, opts)
         vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts)
         vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, opts)

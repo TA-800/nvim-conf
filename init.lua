@@ -10,7 +10,6 @@ require('config-lualine')
 require('config-nvimtree')
 require('config-barbar')
 require('config-toggleterm')
-require('config-telescope')
 require('config-autopair')
 require('config-neodev')
 

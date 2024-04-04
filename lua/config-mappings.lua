@@ -5,30 +5,30 @@ local function map(m, k, v)
 end
 
 -- Make C-b the shortcut to open / close the File explorer
-map('n', '<C-b>', '<CMD>NvimTreeToggle<CR>')
+map("n", '<C-b>', '<CMD>NvimTreeToggle<CR>')
 
--- Telescope mappings
-map('n', '<leader>ff', '<CMD>Telescope find_files<CR>')
-map('n', '<leader>fg', '<CMD>Telescope live_grep<CR>')
-
--- Terminal mappings (defined in toggleterm-config)
--- Ctrl + \ to open terminal in normal and insert mode, [number]Ctrl + \ to open numbered terminal (for multiple terms), esc to switch to normal mode in terminal
+-- FZF
+map("n", '<leader>ff', "<CMD>FzfLua files<CR>")
+map("n", '<leader>fg', "<CMD>FzfLua live_grep_native<CR>")
+map("n", '<leader>fd', "<CMD>FzfLua lsp_workspace_diagnostics<CR>")
+map("n", '<leader>fo', "<CMD>FzfLua lsp_document_symbols<CR>")
+map("n", 'gr', "<CMD>FzfLua lsp_references<CR>")
 
 -- Ctrl + s to save in normal and insert mode
-map({ 'i', 'n', 'v' }, '<C-s>', '<CMD>w<CR>')
+map({ "i", "n", "v" }, '<C-s>', '<CMD>w<CR>')
 
 -- J and K to move up and down 5 lines
-map('n', 'J', '5j')
-map('n', 'K', '5k')
+map("n", "J", "5j")
+map("n", "K", "5k")
 
 -- Ctrl + h,j,k,l to move left (one char), down (one line), up (one line), right (one char)
-map('i', '<C-h>', '<left>')
-map('i', '<C-j>', '<down>')
-map('i', '<C-k>', '<up>')
-map('i', '<C-l>', '<right>')
+map("i", '<C-h>', '<left>')
+map("i", '<C-j>', '<down>')
+map("i", '<C-k>', '<up>')
+map("i", '<C-l>', '<right>')
 
 -- Leader key + j to join line with line below cursor
-map('n', '<leader>j', '<CMD>join<CR>')
+map("n", '<leader>j', '<CMD>join<CR>')
 
 -- Shift Left, Up, Right, Down to increase / decrease window sizes (widths / heights)
 map("n", "<S-Left>", "<CMD>vertical resize -1<CR>")
@@ -54,15 +54,15 @@ map("i", "<C-c>", "<Esc>")
 ----------------------------------------------------------------------------------------
 -- Keybinds for barbar.nvim (tabline)
 -- Move to previous/next
-map('n', '<A-,>', '<Cmd>BufferPrevious<CR>')
-map('n', '<A-.>', '<Cmd>BufferNext<CR>')
+map("n", '<A-,>', '<Cmd>BufferPrevious<CR>')
+map("n", '<A-.>', '<Cmd>BufferNext<CR>')
 -- Close buffer
-map('n', '<A-c>', '<Cmd>BufferClose<CR>')
+map("n", '<A-c>', '<Cmd>BufferClose<CR>')
 -- Re-order to previous/next
-map('n', '<A-<>', '<Cmd>BufferMovePrevious<CR>')
-map('n', '<A->>', '<Cmd>BufferMoveNext<CR>')
+map("n", '<A-<>', '<Cmd>BufferMovePrevious<CR>')
+map("n", '<A->>', '<Cmd>BufferMoveNext<CR>')
 -- Pin/unpin buffer
-map('n', '<A-p>', '<Cmd>BufferPin<CR>')
+map("n", '<A-p>', '<Cmd>BufferPin<CR>')
 -- Wipeout buffer
 --                 :BufferWipeout
 -- Close commands
@@ -72,6 +72,6 @@ map('n', '<A-p>', '<Cmd>BufferPin<CR>')
 --                 :BufferCloseBuffersLeft
 --                 :BufferCloseBuffersRight
 -- Magic buffer-picking mode
-map('n', '<C-p>', '<Cmd>BufferPick<CR>')
+map("n", '<C-p>', '<Cmd>BufferPick<CR>')
 ----------------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------

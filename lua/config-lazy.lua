@@ -22,6 +22,7 @@ local plugins = {
     "tpope/vim-repeat",
     "sainnhe/gruvbox-material",
     "nvim-tree/nvim-web-devicons",
+    "ibhagwan/fzf-lua", -- FZF (Telescope alternative)
     "nvim-lualine/lualine.nvim",
     "nvim-tree/nvim-tree.lua",
     "romgrk/barbar.nvim",
@@ -40,11 +41,6 @@ local plugins = {
         }
     },
     { "akinsho/toggleterm.nvim", version = '*' },
-    {
-        'nvim-telescope/telescope.nvim',
-        version = '0.1.6',
-        dependencies = { 'nvim-lua/plenary.nvim' }
-    },
     {
         -- Lazy load copilot as it takes time to connect to server, need to define config function here
         "zbirenbaum/copilot.lua",
@@ -102,16 +98,6 @@ local plugins = {
         "mfussenegger/nvim-dap-python",
         ft = "python",
         dependencies = { "mfussenegger/nvim-dap", "rcarriga/nvim-dap-ui" }
-    },
-    {
-        "folke/trouble.nvim", -- LSP diagnostics
-        branch = "dev",       -- TODO: Remove this when it's merged
-        lazy = false,
-        keys = {
-            { "<leader>td", "<cmd>Trouble diagnostics toggle focus=true<cr>" },
-            { "<leader>to", "<cmd>Trouble symbols toggle focus=true<cr>" },
-            { "gr",         "<cmd>Trouble lsp_references focus=true<cr>" }
-        },
     },
 
     -- TREE-SITTER
