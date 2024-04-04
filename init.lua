@@ -14,8 +14,9 @@ require('config-autopair')
 require('config-neodev')
 
 -- Disable italics in comments, :h gruvbox-material
-vim.cmd("let g:gruvbox_material_disable_italic_comment = 1")
-vim.cmd("colorscheme gruvbox-material")
+-- vim.cmd("let g:gruvbox_material_disable_italic_comment = 1")
+-- vim.cmd("colorscheme gruvbox-material")
+vim.cmd("colorscheme kanagawa-dragon")
 -- require('config-copilot') -- Copilot config in lualine for copilot status indicator
 
 -- LSPs
@@ -35,4 +36,3 @@ require('config-formatter')
 require('config-treesitter')
 require('config-ufo')    -- Folding
 require('config-miniai') -- Text objects from mini.ai
-
