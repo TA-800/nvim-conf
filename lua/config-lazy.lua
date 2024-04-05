@@ -22,7 +22,14 @@ local plugins = {
     "tpope/vim-repeat",
     "sainnhe/gruvbox-material",
     "nvim-tree/nvim-web-devicons",
-    "ibhagwan/fzf-lua", -- FZF (Telescope alternative)
+    {
+        "ibhagwan/fzf-lua",
+        config = function()
+            require('fzf-lua').setup {
+                winopts = { border = "single" },
+            }
+        end
+    },
     "nvim-lualine/lualine.nvim",
     "nvim-tree/nvim-tree.lua",
     "romgrk/barbar.nvim",
