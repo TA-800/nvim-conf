@@ -31,7 +31,6 @@ local plugins = {
         end
     },
     "nvim-lualine/lualine.nvim",
-    "nvim-tree/nvim-tree.lua",
     "romgrk/barbar.nvim",
     {
         'rcarriga/nvim-notify',
@@ -84,7 +83,6 @@ local plugins = {
             require('goto-preview').setup {} -- Use <C-w>w to focus preview window when off of it
         end
     },
-    'kosayoda/nvim-lightbulb',
 
     'mfussenegger/nvim-jdtls', -- LSP for Java
     "mfussenegger/nvim-dap",   -- Debug Adapter Protocol

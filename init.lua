@@ -3,7 +3,6 @@ require('config-lazy')
 require('config-presence')
 require('config-mappings')
 require('config-lualine') -- Copilot config partially in lualine, rest in lazy.nvim
-require('config-nvimtree')
 require('config-barbar')
 require('config-toggleterm')
 require('config-autopair')
@@ -17,7 +16,6 @@ vim.cmd("colorscheme gruvbox-material")
 require('config-mason')
 require('config-lsp.language-servers')
 require('config-lsp.nvim-cmp')
-require('config-lsp.lightbulb')
 
 -- DAP
 require('config-nvimdap')

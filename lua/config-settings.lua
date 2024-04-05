@@ -4,10 +4,6 @@ local o = vim.o
 -- cmd('syntax on')
 -- vim.api.nvim_command('filetype plugin indent on')
 
--- Disabling netrw for nvim-tree plugin
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
-
 o.termguicolors = true
 -- o.background = 'dark'
 
@@ -94,12 +90,17 @@ o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 
 -- Highlight yanked text for 200ms
 vim.api.nvim_create_autocmd('TextYankPost', {
-  callback = function()
-    vim.highlight.on_yank({ timeout = 200 })
-  end,
+    callback = function()
+        vim.highlight.on_yank({ timeout = 200 })
+    end,
 })
 
 -- Map <leader> to space
 g.mapleader = ' '
 g.maplocalleader = ' '
 
+-- Netrw settings
+g.netrw_winsize = 15              -- Netrw window size
+g.netrw_localcopydircmd = 'cp -r' -- Enable recursive copy in netrw
+g.netrw_banner = 0                -- Disable banner ('I' to toggle)
+g.netrw_liststyle = 3             -- Tree view

@@ -4,15 +4,15 @@ local function map(m, k, v)
     vim.keymap.set(m, k, v, { silent = true })
 end
 
--- Make C-b the shortcut to open / close the File explorer
-map("n", '<C-b>', '<CMD>NvimTreeToggle<CR>')
-
 -- FZF
 map("n", '<leader>ff', "<CMD>FzfLua files<CR>")
 map("n", '<leader>fg', "<CMD>FzfLua live_grep_native<CR>")
 map("n", '<leader>fd', "<CMD>FzfLua lsp_workspace_diagnostics<CR>")
 map("n", '<leader>fo', "<CMD>FzfLua lsp_document_symbols<CR>")
-map("n", 'gr', "<CMD>FzfLua lsp_references<CR>")
+map("n", "gr", "<CMD>FzfLua lsp_references<CR>")
+
+-- Netrw
+map("n", "<C-b>", "<CMD>Lexplore<CR>")
 
 -- Ctrl + s to save in normal and insert mode
 map({ "i", "n", "v" }, '<C-s>', '<CMD>w<CR>')
@@ -28,7 +28,7 @@ map("i", '<C-k>', '<up>')
 map("i", '<C-l>', '<right>')
 
 -- Leader key + j to join line with line below cursor
-map("n", '<leader>j', '<CMD>join<CR>')
+map("n", "<leader>j", '<CMD>join<CR>')
 
 -- Shift Left, Up, Right, Down to increase / decrease window sizes (widths / heights)
 map("n", "<S-Left>", "<CMD>vertical resize -1<CR>")
