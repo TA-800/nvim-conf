@@ -87,7 +87,6 @@ o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 -- Default mappings to open / close folds: za (toggle, one level), zA (toggle, all levels)
 -- More settings in config-ufo
 
-
 -- Highlight yanked text for 200ms
 vim.api.nvim_create_autocmd('TextYankPost', {
     callback = function()
@@ -103,4 +102,3 @@ g.maplocalleader = ' '
 g.netrw_winsize = 15              -- Netrw window size
 g.netrw_localcopydircmd = 'cp -r' -- Enable recursive copy in netrw
 g.netrw_banner = 0                -- Disable banner ('I' to toggle)
-g.netrw_liststyle = 3             -- Tree view

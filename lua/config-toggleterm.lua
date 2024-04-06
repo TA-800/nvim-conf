@@ -35,4 +35,3 @@ end
 
 -- Setting keybind to run command that toggles lazygit
 vim.api.nvim_set_keymap("n", "<leader>lg", "<CMD>lua _LAZYGIT_TOGGLE()<CR>", { noremap = true, silent = true })
-

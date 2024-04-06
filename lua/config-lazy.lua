@@ -26,7 +26,18 @@ local plugins = {
         "ibhagwan/fzf-lua",
         config = function()
             require('fzf-lua').setup {
+                file_icon_padding = ' ', -- https://github.com/ibhagwan/fzf-lua/wiki#differences-fzf.vim (Icon padding)
                 winopts = { border = "single" },
+                keymap = {
+                    builtin = {
+                        ["<C-d>"] = "preview-page-down", -- you must use neovim-style keymaps (i.e. <C-c> for Control-C) for built-in
+                        ["<C-u>"] = "preview-page-up"
+                    },
+                    fzf = {
+                        ['tab'] = 'down', -- you must use fzf-style keymas (i.e. ctrl-c for Control-c) for fzf
+                        ['shift-tab'] = 'up',
+                    }
+                }
             }
         end
     },
@@ -80,7 +91,7 @@ local plugins = {
     {
         'rmagatti/goto-preview',
         config = function()
-            require('goto-preview').setup {} -- Use <C-w>w to focus preview window when off of it
+            require('goto-preview').setup {} -- Use <ctrl-w>w to focus preview window when off of it
         end
     },
 
