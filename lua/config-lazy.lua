@@ -30,12 +30,13 @@ local plugins = {
                 winopts = { border = "single" },
                 keymap = {
                     builtin = {
-                        ["<C-d>"] = "preview-page-down", -- you must use neovim-style keymaps (i.e. <C-c> for Control-C) for built-in
-                        ["<C-u>"] = "preview-page-up"
+                        ["<C-d>"] = "preview-page-down",
+                        ["<C-u>"] = "preview-page-up" -- you must use neovim-style keymaps (i.e. <C-c> for Control-C) for built-in
                     },
                     fzf = {
-                        ['tab'] = 'down', -- you must use fzf-style keymas (i.e. ctrl-c for Control-c) for fzf
-                        ['shift-tab'] = 'up',
+                        ['shift-tab'] = 'up', -- you must use fzf-style keymaps (i.e. ctrl-c for Control-c) for fzf
+                        ['tab'] = 'down',     -- replaces 'tab' for adding to quickfix list
+                        -- ctrl-j|k still usable for list navigation
                     }
                 }
             }
@@ -112,7 +113,6 @@ local plugins = {
     },
 
     -- TREE-SITTER
-    "stevearc/conform.nvim",
     {
         'nvim-treesitter/nvim-treesitter',
         build = ':TSUpdate'
@@ -121,6 +121,7 @@ local plugins = {
     "windwp/nvim-autopairs",                       -- Autopairs for nvim
     "windwp/nvim-ts-autotag",                      -- Autotag for nvim-treesitter (HTML, JSX, TSX)
     "nvim-treesitter/nvim-treesitter-textobjects", -- Textobjects for nvim-treesitter
+    "stevearc/conform.nvim",                       -- Format on save
     "echasnovski/mini.ai",                         -- More textobjects and improved motions
     -- https://www.reddit.com/r/neovim/comments/wiamjt/comment/ijae8yc/?utm_source=share&utm_medium=web2x&context=3
 }
