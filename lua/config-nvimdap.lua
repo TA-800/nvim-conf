@@ -33,17 +33,25 @@ dap.configurations.cpp = {
 
 
 dapui.setup()
-dap.listeners.after.event_initialized["dapui_config"] = function()
+dap.listeners.before.attach.dapui_config = function()
     dapui.open()
 end
-dap.listeners.before.event_terminated["dapui_config"] = function()
+dap.listeners.before.launch.dapui_config = function()
+    dapui.open()
+end
+dap.listeners.before.event_terminated.dapui_config = function()
     dapui.close()
 end
-dap.listeners.before.event_exited["dapui_config"] = function()
+dap.listeners.before.event_exited.dapui_config = function()
     dapui.close()
 end
 
 -- Keymaps to start debugger
 vim.keymap.set("n", "<leader>db", "<Cmd>lua require'dap'.toggle_breakpoint()<CR>")
-vim.keymap.set("n", "<leader>dr", "<Cmd>lua require'dap'.continue()<CR>")
+vim.keymap.set("n", "<leader>dr", "<Cmd>lua require'dap'.continue()<CR>")  -- 
+vim.keymap.set("n", "<leader>di", "<Cmd>lua require'dap'.step_into()<CR>") -- 
+vim.keymap.set("n", "<leader>do", "<Cmd>lua require'dap'.step_over()<CR>") -- 
+vim.keymap.set("n", "<leader>du", "<Cmd>lua require'dap'.step_out()<CR>")  -- 
 
+-- Breakpoint icon
+vim.fn.sign_define('DapBreakpoint', { text = '🔴', linehl = '', numhl = '' })

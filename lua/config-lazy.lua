@@ -72,11 +72,7 @@ local plugins = {
             })
         end
     },
-    {
-        "folke/todo-comments.nvim",
-        dependencies = "nvim-lua/plenary.nvim",
-        opts = {}
-    },
+
 
     -- LSP (mostly)
     "folke/neodev.nvim",                 -- Neovim kit for Lua Development
