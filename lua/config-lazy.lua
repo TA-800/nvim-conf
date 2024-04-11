@@ -32,11 +32,6 @@ local plugins = {
                     builtin = {
                         ["<C-d>"] = "preview-page-down",
                         ["<C-u>"] = "preview-page-up" -- you must use neovim-style keymaps (i.e. <C-c> for Control-C) for built-in
-                    },
-                    fzf = {
-                        ['shift-tab'] = 'up', -- you must use fzf-style keymaps (i.e. ctrl-c for Control-c) for fzf
-                        ['tab'] = 'down',     -- replaces 'tab' for adding to quickfix list
-                        -- ctrl-j|k still usable for list navigation
                     }
                 }
             }
