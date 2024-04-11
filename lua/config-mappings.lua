@@ -17,18 +17,11 @@ map("n", "<C-b>", "<CMD>Lexplore<CR>")
 -- Ctrl + s to save in normal and insert mode
 map({ "i", "n", "v" }, '<C-s>', '<CMD>w<CR>')
 
--- J and K to move up and down 5 lines
-map("n", "J", "5j")
-map("n", "K", "5k")
-
 -- Ctrl + h,j,k,l to move left (one char), down (one line), up (one line), right (one char)
 map("i", '<C-h>', '<left>')
 map("i", '<C-j>', '<down>')
 map("i", '<C-k>', '<up>')
 map("i", '<C-l>', '<right>')
-
--- Leader key + j to join line with line below cursor
-map("n", "<leader>j", '<CMD>join<CR>')
 
 -- Shift Left, Up, Right, Down to increase / decrease window sizes (widths / heights)
 map("n", "<S-Left>", "<CMD>vertical resize -1<CR>")
