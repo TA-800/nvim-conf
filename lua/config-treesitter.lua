@@ -19,7 +19,7 @@ require 'nvim-treesitter.configs'.setup {
                 ["af"] = "@function.outer",
                 ["if"] = "@function.inner",
 
-                ["aL"] = "@loop.outer",
+                ["aL"] = "@loop.outer", -- don't use lowercase 'l' as it is by mini.ai for 'last' (e.g. cilq -> change inside last quotes)
                 ["iL"] = "@loop.inner",
 
                 ["aC"] = "@conditional.outer",
@@ -62,4 +62,3 @@ require 'nvim-treesitter.configs'.setup {
         }
     },
 }
-

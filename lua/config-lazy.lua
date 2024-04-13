@@ -31,8 +31,9 @@ local plugins = {
                 keymap = {
                     builtin = {
                         ["<C-d>"] = "preview-page-down",
-                        ["<C-u>"] = "preview-page-up" -- you must use neovim-style keymaps (i.e. <C-c> for Control-C) for built-in
+                        ["<C-u>"] = "preview-page-up" -- you must use neovim-style keymaps (i.e. <C-c> for Control-C) for builtin
                     }
+                    -- you must use fzf-style keymaps (i.e. ctrl-c for Control-C) for fzf options
                 }
             }
         end
