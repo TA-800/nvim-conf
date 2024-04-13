@@ -1,7 +1,5 @@
-require 'nvim-treesitter.install'.compilers = { "clang" }
-require 'nvim-treesitter.configs'.setup {
+config = {
     auto_install = true,
-
 
     highlight = {
         enable = true,
@@ -11,9 +9,7 @@ require 'nvim-treesitter.configs'.setup {
     textobjects = {
         select = {
             enable = true,
-
             lookahead = true,
-
             keymaps = {
                 -- You can use the capture groups defined in textobjects.scm
                 ["af"] = "@function.outer",
@@ -61,4 +57,12 @@ require 'nvim-treesitter.configs'.setup {
             },
         }
     },
+}
+
+return
+{
+    "nvim-treesitter/nvim-treesitter",
+    build = ":TSUpdate",
+    event = "VeryLazy",
+    config = config,
 }
