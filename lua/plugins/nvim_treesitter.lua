@@ -1,4 +1,4 @@
-config = {
+local opts = {
     auto_install = true,
 
     highlight = {
@@ -63,6 +63,13 @@ return
 {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
+    dependencies = {
+        "nvim-treesitter/nvim-treesitter-textobjects",
+        "nvim-treesitter/nvim-treesitter-refactor",
+        "nvim-treesitter/nvim-treesitter-context",
+    },
     event = "VeryLazy",
-    config = config,
+    config = function()
+        require("nvim-treesitter.configs").setup(opts)
+    end
 }

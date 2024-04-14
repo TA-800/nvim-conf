@@ -39,8 +39,6 @@ local config = function()
     dap.listeners.before.event_terminated.dapui_config = function() dapui.close() end
     dap.listeners.before.event_exited.dapui_config = function() dapui.close() end
 
-    -- TODO Add keymaps for debugging
-
 end
 
 return {

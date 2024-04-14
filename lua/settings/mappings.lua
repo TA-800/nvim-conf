@@ -1,15 +1,10 @@
 -- https://github.com/numToStr/dotfiles/blob/master/neovim/.config/nvim/lua/numToStr/keybinds.lua
 -- Creating a custom function to map keybinds more easily
-local function map(m, k, v)
-    vim.keymap.set(m, k, v, { silent = true })
+local function map(m, k, v, opts)
+    -- combine opts with silent = true (if opts was passed)
+    local options = vim.tbl_extend("keep", { silent = true }, opts or {})
+    vim.keymap.set(m, k, v, options)
 end
-
--- FZF
-map("n", '<leader>ff', "<CMD>FzfLua files<CR>")
-map("n", '<leader>fg', "<CMD>FzfLua live_grep_native<CR>")
-map("n", '<leader>fd', "<CMD>FzfLua lsp_workspace_diagnostics<CR>")
-map("n", '<leader>fo', "<CMD>FzfLua lsp_document_symbols<CR>")
-map("n", "gr", "<CMD>FzfLua lsp_references<CR>")
 
 -- Netrw
 map("n", "<C-b>", "<CMD>Lexplore<CR>")
@@ -34,6 +29,10 @@ map("n", "<S-Up>", "<CMD>resize +1<CR>")
 -- J and K during visual mode to move up and down selected lines
 map("v", "J", ":m '>+1<CR>gv=gv")
 map("v", "K", ":m '<-2<CR>gv=gv")
+
+-- Prevent indenting with < and > to remove visual selection
+map("v", "<", "<gv")
+map("v", ">", ">gv")
 
 -- When moving around with C-d or C-u or search, keep cursor / screen centered.
 map("n", "<C-d>", "<C-d>zz")
@@ -66,5 +65,42 @@ map("n", '<A-p>', '<Cmd>BufferPin<CR>')
 --                 :BufferCloseBuffersRight
 -- Magic buffer-picking mode
 map("n", '<C-p>', '<Cmd>BufferPick<CR>')
+
+-- FZF
+map("n", '<leader>ff', "<CMD>FzfLua files<CR>")
+map("n", '<leader>fg', "<CMD>FzfLua live_grep_native<CR>")
+map("n", '<leader>fd', "<CMD>FzfLua lsp_workspace_diagnostics<CR>")
+map("n", '<leader>fo', "<CMD>FzfLua lsp_document_symbols<CR>")
+map("n", "gr", "<CMD>FzfLua lsp_references<CR>")
+
+
+-- Nvim Possession (session manager)
+map("n", '<leader>sl', "<CMD>lua require('nvim-possession').list()<CR>")
+
+-- LSP
+map("n", '<space>ds', "<CMD>lua vim.diagnostic.open_float()<CR>")
+map("n", '[d', "<CMD>lua vim.diagnostic.goto_prev()<CR>")
+map("n", ']d', "<CMD>lua vim.diagnostic.goto_next()<CR>")
+
+-- Use LspAttach autocommand to only map the following keys
+-- after the language server attaches to the current buffer
+vim.api.nvim_create_autocmd('LspAttach', {
+    group = vim.api.nvim_create_augroup('UserLspConfig', {}),
+    callback = function(ev)
+        -- Enable completion triggered by <c-x><c-o>
+        vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
+        -- Buffer local mappings.
+        -- See `:help vim.lsp.*` for documentation on any of the below functions
+        local opts = { buffer = ev.buf }
+        -- vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts) -- Go to definition || Already mapped to treesitter, will fallback to lsp
+        -- vim.keymap.set("n", "gi", "<cmd>lua require('goto-preview').goto_preview_implementation()<CR>", { noremap = true })
+        -- vim.keymap.set('n', 'gr', "vim.lsp.buf.references", opts) -- Uses FzfLua lsp_references
+        map('n', 'gh', vim.lsp.buf.hover, opts)
+        map('n', '<space>rn', vim.lsp.buf.rename, opts)
+        map({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, opts)
+        map('i', '<c-u>', vim.lsp.buf.signature_help, opts)                                                  -- Original <c-k>, now u
+    end,
+})
+
 ----------------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------
