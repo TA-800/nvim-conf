@@ -1,4 +1,6 @@
 config = function()
+    -- IMPORTANT: make sure to setup neodev BEFORE lspconfig
+    require("neodev").setup({})
 
     local lspconfig = require('lspconfig')
     -- Add additional capabilities supported by nvim-cmp
@@ -46,6 +48,7 @@ end
 return {
     "neovim/nvim-lspconfig",
     dependencies = {
+        "folke/neodev.nvim", -- for nvim.api lsp reference
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
     },

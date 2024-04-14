@@ -28,7 +28,7 @@ end
 
 
 -- https://github.com/jonahgoldwastaken/copilot-status.nvim#example-with-lualine
-config = {
+local config = {
     options = {
         theme = 'gruvbox-material',
         component_separators = "",
