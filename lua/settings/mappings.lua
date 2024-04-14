@@ -5,6 +5,11 @@ local function map(m, k, v, opts)
     vim.keymap.set(m, k, v, options)
 end
 
+-- Windows Terminal keymaps:
+-- Alt-Shift-+/- = New horizontal/Vertical pane
+-- Alt-Shift-ArrowKey = Resize selected pane
+-- Alt-ArrowKey = Move between panes
+
 -- Netrw
 map("n", "<C-b>", "<CMD>Lexplore<CR>")
 

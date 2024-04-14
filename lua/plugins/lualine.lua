@@ -38,7 +38,6 @@ config = {
         lualine_x = { get_status, "filetype" }
     },
     extensions = {
-        'toggleterm',
         'nvim-dap-ui',
     }
 
