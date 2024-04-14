@@ -5,10 +5,11 @@ local function map(m, k, v, opts)
     vim.keymap.set(m, k, v, options)
 end
 
--- Windows Terminal keymaps:
--- Alt-Shift-+/- = New horizontal/Vertical pane
--- Alt-Shift-ArrowKey = Resize selected pane
--- Alt-ArrowKey = Move between panes
+-- Windows Terminal keymaps - https://learn.microsoft.com/en-us/windows/terminal/panes#closing-a-pane
+-- Alt + Shift + +/- = New horizontal/Vertical pane
+-- Alt + Shift + ArrowKey = Resize selected pane
+-- Alt + ArrowKey = Move between panes
+-- Ctrl + Shift + P = Command Palette -> type "zoom" to select "Toggle Pane Zoom"
 
 -- Netrw
 map("n", "<C-b>", "<CMD>Lexplore<CR>")
