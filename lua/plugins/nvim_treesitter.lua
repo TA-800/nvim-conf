@@ -30,6 +30,16 @@ local opts = {
             -- `ap`.
             include_surrounding_whitespace = true,
         },
+
+        lsp_interop = {
+            enable = true,
+            peek_definition_code = {
+                ["pf"] = "@function.outer",
+                ["pc"] = "@class.outer",
+                ["pv"] = "@assignment.outer",
+            },
+
+        }
     },
 
     -- Auto pairs for nvim-treesitter
@@ -39,24 +49,6 @@ local opts = {
     -- Autotag for nvim-treesitter (HTML, JSX, TSX)
     autotag = { enable = true },
 
-    -- https://github.com/nvim-treesitter/nvim-treesitter-refactor#navigation
-    refactor = {
-        highlight_definitions = {
-            enable = true,
-            clear_on_cursor_move = true,
-        },
-        navigation = {
-            enable = true,
-            keymaps = {
-                goto_definition_lsp_fallback = "gd",
-                goto_definition = false,
-                list_definitions = false,
-                list_definitions_toc = false,
-                goto_next_usage = false,
-                goto_previous_usage = false,
-            },
-        }
-    },
 }
 
 return
@@ -65,7 +57,6 @@ return
     build = ":TSUpdate",
     dependencies = {
         "nvim-treesitter/nvim-treesitter-textobjects",
-        "nvim-treesitter/nvim-treesitter-refactor",
         "nvim-treesitter/nvim-treesitter-context",
     },
     event = "VeryLazy",

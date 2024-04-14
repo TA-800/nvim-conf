@@ -7,4 +7,3 @@ require("settings.mappings") -- global mappings
 -- ensure that plugins like fzf are using optional dependencies (ripgrep, fd)
 -- conform vs mfussenegger/linter?
 -- toggleterm + lazygit
--- get rid of snippets (so many of them)

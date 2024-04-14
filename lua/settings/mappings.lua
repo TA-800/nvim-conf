@@ -1,5 +1,4 @@
--- https://github.com/numToStr/dotfiles/blob/master/neovim/.config/nvim/lua/numToStr/keybinds.lua
--- Creating a custom function to map keybinds more easily
+-- helper function to map keys
 local function map(m, k, v, opts)
     -- combine opts with silent = true (if opts was passed)
     local options = vim.tbl_extend("keep", { silent = true }, opts or {})
@@ -78,7 +77,7 @@ map("n", "gr", "<CMD>FzfLua lsp_references<CR>")
 map("n", '<leader>sl', "<CMD>lua require('nvim-possession').list()<CR>")
 
 -- LSP
-map("n", '<space>ds', "<CMD>lua vim.diagnostic.open_float()<CR>")
+map("n", '<space>e', "<CMD>lua vim.diagnostic.open_float()<CR>")
 map("n", '[d', "<CMD>lua vim.diagnostic.goto_prev()<CR>")
 map("n", ']d', "<CMD>lua vim.diagnostic.goto_next()<CR>")
 
@@ -92,9 +91,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
         -- Buffer local mappings.
         -- See `:help vim.lsp.*` for documentation on any of the below functions
         local opts = { buffer = ev.buf }
-        -- vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts) -- Go to definition || Already mapped to treesitter, will fallback to lsp
-        -- vim.keymap.set("n", "gi", "<cmd>lua require('goto-preview').goto_preview_implementation()<CR>", { noremap = true })
-        -- vim.keymap.set('n', 'gr', "vim.lsp.buf.references", opts) -- Uses FzfLua lsp_references
+        map('n', 'gd', vim.lsp.buf.definition, opts)
         map('n', 'gh', vim.lsp.buf.hover, opts)
         map('n', '<space>rn', vim.lsp.buf.rename, opts)
         map({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, opts)
