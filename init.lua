@@ -5,3 +5,4 @@ require("settings.mappings") -- global mappings
 
 -- TODO:
 -- formatter (conform or mfussenegger/linter)
+-- colorscheme: try https://github.com/Lokaltog/vim-monotone

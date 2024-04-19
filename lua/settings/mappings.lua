@@ -75,7 +75,7 @@ map("n", '<C-p>', '<Cmd>BufferPick<CR>')
 map("n", '<leader>ff', "<CMD>FzfLua files<CR>")
 map("n", '<leader>fg', "<CMD>FzfLua live_grep_native<CR>")
 map("n", '<leader>fd', "<CMD>FzfLua lsp_workspace_diagnostics<CR>")
-map("n", '<leader>fo', "<CMD>FzfLua lsp_document_symbols<CR>")
+map("n", '<leader>fs', "<CMD>FzfLua lsp_document_symbols<CR>")
 map("n", "gr", "<CMD>FzfLua lsp_references<CR>")
 
 
@@ -103,7 +103,13 @@ vim.api.nvim_create_autocmd('LspAttach', {
         map({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, opts)
         map('i', '<c-u>', vim.lsp.buf.signature_help, opts)                                                  -- Original <c-k>, now u
     end,
+
+    -- LSP textobjects (preview func, var, class) in nvim_treesitter.lua
 })
+
+-- TODO: Set up debugger keymaps (try to follow standard GDB / debugger keymaps like 
+-- next (n, step over or execute current & move to next line), step (s, step into function calls), continue (c, run until next breakpoint), break (b, toggle breakpoint), quit (q, terminate) (<l>dn, <l>ds, <l>dc, <l>db>, <l>dq)
+-- Ensure mappings don't collide (check with :FzfLua keymaps)
 
 ----------------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------

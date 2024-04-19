@@ -34,9 +34,8 @@ local opts = {
         lsp_interop = {
             enable = true,
             peek_definition_code = {
-                ["pf"] = "@function.outer",
-                ["pc"] = "@class.outer",
-                ["pv"] = "@assignment.outer",
+                ["gpf"] = "@function.outer",
+                ["gpc"] = "@class.outer",
             },
 
         }

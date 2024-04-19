@@ -75,6 +75,7 @@ end
 
 return {
     "hrsh7th/nvim-cmp",
+    event = "InsertEnter",
     dependencies = {
         "hrsh7th/cmp-nvim-lsp",              -- LSP source for nvim-cmp
         "saadparwaiz1/cmp_luasnip",          -- Snippets source for nvim-cmp
@@ -84,6 +85,5 @@ return {
         "windwp/nvim-autopairs",             -- Autopairs for nvim-cmp
 
     },
-    event = "InsertEnter",
     config = config,
 }
