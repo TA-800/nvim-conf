@@ -30,15 +30,6 @@ local opts = {
             -- `ap`.
             include_surrounding_whitespace = true,
         },
-
-        lsp_interop = {
-            enable = true,
-            peek_definition_code = {
-                ["gpf"] = "@function.outer",
-                ["gpc"] = "@class.outer",
-            },
-
-        }
     },
 
     -- Auto pairs for nvim-treesitter
