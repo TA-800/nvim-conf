@@ -32,11 +32,13 @@ config = function()
                 },
                 completion = {
                     callSnippet = "Replace",
-                }
+                },
+                hint = {
+                    enable = true,
+                },
             }
         }
     })
-
 end
 
 -- Plugins should be set up in the following order:
