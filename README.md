@@ -1,5 +1,5 @@
-# VIM CONFIGURATION FILES
-Just a backup of my stable configuration files to return to after I inevitably break the config and Neovim soon.
+# NEOVIM CONFIGURATION FILES
+My neovim config files.
 
 <p align="center">
 <img src="https://github.com/TA-800/vimconfig/assets/31612100/02c96600-a1e4-43ec-9fc0-0594e38b5408" alt="Neovim" width="125"/>
