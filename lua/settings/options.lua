@@ -99,6 +99,5 @@ g.mapleader = ' '
 g.maplocalleader = ' '
 
 -- Netrw settings
-g.netrw_winsize = 15              -- Netrw window size
-g.netrw_localcopydircmd = 'cp -r' -- Enable recursive copy in netrw
-g.netrw_banner = 0                -- Disable banner ('I' to toggle)
+g.loaded_netrw = 1 -- disable
+g.loaded_netrwPlugin = 1 -- disable

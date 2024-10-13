@@ -11,8 +11,8 @@ end
 -- Alt + ArrowKey = Move between panes
 -- Ctrl + Shift + P = Command Palette -> type "zoom" to select "Toggle Pane Zoom"
 
--- Netrw
-map("n", "<C-b>", "<CMD>Lexplore<CR>")
+-- Mini.Files (file explorer)
+map("n", "<C-b>", "<CMD>lua MiniFiles.open()<CR>")
 
 -- Ctrl + s to save in normal and insert mode
 map({ "i", "n", "v" }, '<C-s>', '<CMD>w<CR>')
@@ -102,7 +102,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
         map('n', 'gh', vim.lsp.buf.hover, opts)
         map('n', '<space>rn', vim.lsp.buf.rename, opts)
         map({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, opts)
-        map('i', '<c-u>', vim.lsp.buf.signature_help, opts)                                                  -- Original <c-k>, now u
+        map('i', '<c-u>', vim.lsp.buf.signature_help, opts) -- Original <c-k>, now u
     end,
 
     -- LSP textobjects (preview func, var, class) in nvim_treesitter.lua
