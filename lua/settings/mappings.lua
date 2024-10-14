@@ -1,21 +1,19 @@
 -- helper function to map keys
-local function map(m, k, v, opts)
+local function map(mode, key, action, opts)
     -- combine opts with silent = true (if opts was passed)
     local options = vim.tbl_extend("keep", { silent = true }, opts or {})
-    vim.keymap.set(m, k, v, options)
+    vim.keymap.set(mode, key, action, options)
 end
 
 -- Windows Terminal keymaps - https://learn.microsoft.com/en-us/windows/terminal/panes#closing-a-pane
 -- Alt + Shift + +/- = New horizontal/Vertical pane
 -- Alt + Shift + ArrowKey = Resize selected pane
+-- Ctrl + Shift + W = Close pane
 -- Alt + ArrowKey = Move between panes
 -- Ctrl + Shift + P = Command Palette -> type "zoom" to select "Toggle Pane Zoom"
 
 -- Mini.Files (file explorer)
 map("n", "<C-b>", "<CMD>lua MiniFiles.open()<CR>")
-
--- Ctrl + s to save in normal and insert mode
-map({ "i", "n", "v" }, '<C-s>', '<CMD>w<CR>')
 
 -- Ctrl + h,j,k,l to move left (one char), down (one line), up (one line), right (one char)
 map("i", '<C-h>', '<left>')
@@ -85,8 +83,6 @@ map("n", '<leader>sl', "<CMD>lua require('nvim-possession').list()<CR>")
 
 -- LSP
 map("n", '<space>e', "<CMD>lua vim.diagnostic.open_float()<CR>")
-map("n", '[d', "<CMD>lua vim.diagnostic.goto_prev()<CR>")
-map("n", ']d', "<CMD>lua vim.diagnostic.goto_next()<CR>")
 
 -- Use LspAttach autocommand to only map the following keys
 -- after the language server attaches to the current buffer
@@ -99,10 +95,15 @@ vim.api.nvim_create_autocmd('LspAttach', {
         -- See `:help vim.lsp.*` for documentation on any of the below functions
         local opts = { buffer = ev.buf }
         map('n', 'gd', vim.lsp.buf.definition, opts)
-        map('n', 'gh', vim.lsp.buf.hover, opts)
         map('n', '<space>rn', vim.lsp.buf.rename, opts)
         map({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, opts)
         map('i', '<c-u>', vim.lsp.buf.signature_help, opts) -- Original <c-k>, now u
+
+        -- Enable inlay hints on startup if the server supports it
+        local client = vim.lsp.get_client_by_id(ev.data.client_id)
+        if client.server_capabilities.inlayHintProvider then
+            vim.lsp.inlay_hint.enable(true, nil)
+        end
     end,
 
     -- LSP textobjects (preview func, var, class) in nvim_treesitter.lua
